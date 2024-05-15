@@ -1,7 +1,12 @@
 import AddContact from "@/components/AddContact";
-import ContactCard from "@/components/ContactCard";
+import ContactList from "@/components/ContactList";
+
+
+
+
 
 export default function Home() {
+  
   return (
     <main className="min-h-screen p-24 lg:px-72">
       <section className="flex w-full">
@@ -13,7 +18,8 @@ export default function Home() {
         </section>
       </section>
       <section className="w-full">
-        <ContactCard />
+        {/* @ts-expect-error Async Server Component */}
+        <ContactList />
       </section>
     </main>
   );

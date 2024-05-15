@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Contacts App",
   description: "Contacts App for keeping track of contacts",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/app/favicon.ico',
   },
 };
 

@@ -11,11 +11,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
-export default function ContactCard() {
+export default function ContactCard(data:any) {
+  let contact = data.contact
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Contact</Button>
+        <Button variant="outline" className="flex w-3/4 my-2">
+          
+          <h2 className="w-3/4">{contact.name}</h2>
+          <h3 className="w-1/4">{contact.last_contact}</h3>
+        
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -29,7 +35,7 @@ export default function ContactCard() {
             <Label htmlFor="name" className="text-right">
               Name
             </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+            <Input id="name" value={contact.name} className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="image" className="text-right">
@@ -41,7 +47,7 @@ export default function ContactCard() {
             <Label htmlFor="last_contact" className="text-right">
               Last Contact Date
             </Label>
-            <Input id="last_contact" value="@peduarte" className="col-span-3" />
+            <Input id="last_contact" value={contact.last_contact} className="col-span-3" />
           </div>
         </div>
         <DialogFooter>
