@@ -36,7 +36,7 @@ import insertContact  from "@/lib/data/insertContact";
 
 //Constants for Max file size and images
 
-const MAX_FILE_SIZE = 600000;
+const MAX_FILE_SIZE = 6000000;
 
 //Zod schema for form validation
 

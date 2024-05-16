@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This contacts app is built on NextJS with a supabase database and storage. The ui elements are from Shadcn. You can find the website hosted on https://contacts-app-x8g7.vercel.app/
 
 ## Getting Started
+Clone the repository to your local development server. 
 
-First, run the development server:
+Install required dependencies with:
+
+```bash
+npm install
+```
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Lastly, create .env.local file with the database keys. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the page.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## App Structure
 
-## Learn More
+App is a SPA with the page in /app. Add Contact modal and Contact Card modals are client side components in /components. Data fetching server actions (Fetch, Insert and Update Contacts) can be found in /lib/data/. 
 
-To learn more about Next.js, take a look at the following resources:
+To build the data submission forms, react-hook-form was used, with Zod as client side data validation. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## WIP
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+While most functionality is present, there are still some unfinished tasks:
 
-## Deploy on Vercel
+1. Change text of warning message in form when no file is submitted
+2. Updating Contact requires file to be uploaded. 
+3. Fetching of image from server should be reworked. 
+4. Error messages in form dont disappear even if modal closes when using the small 'x' button on top right
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
