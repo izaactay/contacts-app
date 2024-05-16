@@ -29,12 +29,13 @@ To build the data submission forms, react-hook-form was used, with Zod as client
 
 Database is a postgresql db on Supabase. There is 1 table with the following schema:
 
-Field | Type | Attrs | Remarks
-id | uuid | PK, not null| Contact identifier
-name | varchar | not null | Name of contact
-last_contact | date | not null | Last contact date with this contact
-image | varchar | not null | path to image on supabase storage
-img_id | uuid | not null | unique identifier of image 
+|Field | Type | Attrs | Remarks|
+|- | - | - | -|
+|id | uuid | PK, not null| Contact identifier|
+|name | varchar | not null | Name of contact|
+|last_contact | date | not null | Last contact date with this contact|
+|image | varchar | not null | path to image on supabase storage|
+|img_id | uuid | not null | unique identifier of image|
 
 ## WIP
 
