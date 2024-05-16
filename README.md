@@ -45,4 +45,4 @@ While most functionality is present, there are still some unfinished tasks:
 2. Updating Contact requires file to be uploaded. 
 3. Fetching of image from server should be reworked. 
 4. Error messages in form dont disappear even if modal closes when using the small 'x' button on top right
-
+5. There is a slight delay to the contacts list being update after the data is changed, due to having to wait for the db to be updated. Can implement some client side state management. 
