@@ -7,9 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Contacts App",
   description: "Contacts App for keeping track of contacts",
-  icons: {
-    icon: '/app/favicon.ico',
-  },
+
 };
 
 export default function RootLayout({
