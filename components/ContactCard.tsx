@@ -17,7 +17,7 @@ export default function ContactCard(data:any) {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" className="flex w-3/4 my-2">
-          
+
           <h2 className="w-3/4">{contact.name}</h2>
           <h3 className="w-1/4">{contact.last_contact}</h3>
         
