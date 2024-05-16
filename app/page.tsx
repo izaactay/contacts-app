@@ -18,7 +18,7 @@ export default function Home() {
         </section>
       </section>
       <section className="w-full">
-        {/* @ts-expect-error Async Server Component */}
+        
         <ContactList />
       </section>
     </main>
