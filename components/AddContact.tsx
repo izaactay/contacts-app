@@ -83,7 +83,7 @@ function onSubmit(values: z.infer<typeof addContactSchema>) {
                 <DialogTitle>Add Contact</DialogTitle>
                 <DialogDescription>
                   Add details about your new contact here. Click save when
-                  you're done.
+                  you are done.
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">

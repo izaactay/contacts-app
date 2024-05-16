@@ -92,7 +92,7 @@ export default function ContactCard(data: any) {
           <DialogHeader>
             <DialogTitle>Edit Contact</DialogTitle>
             <DialogDescription>
-              Update details about this contact here. Click save when you're
+              Update details about this contact here. Click save when you are
               done.
             </DialogDescription>
           </DialogHeader>
