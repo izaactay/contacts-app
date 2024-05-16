@@ -32,7 +32,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import insertContact  from "@/lib/data/insertContact";
+import insertContact from "@/lib/data/insertContact";
 
 //Constants for Max file size and images
 
@@ -41,9 +41,10 @@ const MAX_FILE_SIZE = 6000000;
 //Zod schema for form validation
 
 const addContactSchema = z.object({
-  name: z.string().min(1,"Please enter a valid name").max(50),
+  name: z.string().min(1, "Please enter a valid name").max(50),
   image: z.instanceof(File).refine((file) => file.size < MAX_FILE_SIZE, {
-      message: 'Your image must be less than 6MB.',}),
+    message: "Your image must be less than 6MB.",
+  }),
   last_contact: z.date(),
 });
 
@@ -58,16 +59,16 @@ export default function AddContact() {
   });
 
   //Submit handler
-function onSubmit(values: z.infer<typeof addContactSchema>) {
+  function onSubmit(values: z.infer<typeof addContactSchema>) {
     let formData = new FormData();
-    
+
     formData.append("name", values.name);
     formData.append("image", values.image);
     formData.append("last_contact", values.last_contact.toISOString());
-    
+
     insertContact(formData);
-    form.reset();
-    setOpen(false);
+    form.reset(); //clears form
+    setOpen(false); //closes modal
   }
 
   return (
@@ -82,8 +83,8 @@ function onSubmit(values: z.infer<typeof addContactSchema>) {
               <DialogHeader>
                 <DialogTitle>Add Contact</DialogTitle>
                 <DialogDescription>
-                  Add details about your new contact here. Click save when
-                  you are done.
+                  Add details about your new contact here. Click save when you
+                  are done.
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
@@ -97,10 +98,7 @@ function onSubmit(values: z.infer<typeof addContactSchema>) {
                           Name
                         </FormLabel>
                         <FormControl>
-                          <Input
-                            {...field}
-                            className="col-span-3"
-                          />
+                          <Input {...field} className="col-span-3" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -108,30 +106,31 @@ function onSubmit(values: z.infer<typeof addContactSchema>) {
                   />
                 </div>
                 <div>
-                <FormField
-                  control={form.control}
-                  name="image"
-                  render={({ field: { value, onChange, ...fieldProps } }) => (
-                    <FormItem>
-                      <FormLabel htmlFor="image" className="text-right">
+                  <FormField
+                    control={form.control}
+                    name="image"
+                    render={({ field: { value, onChange, ...fieldProps } }) => (
+                      <FormItem>
+                        <FormLabel htmlFor="image" className="text-right">
                           Photo
                         </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...fieldProps}
-                          type="file"
-                          accept="image/*"
-                          onChange={(event) =>
-                            onChange(event.target.files && event.target.files[0])
-                          }
-                        />
-                      </FormControl>
-                      <FormDescription>Photo of your contact</FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
+                        <FormControl>
+                          <Input
+                            {...fieldProps}
+                            type="file"
+                            accept="image/*"
+                            onChange={(event) =>
+                              onChange(
+                                event.target.files && event.target.files[0],
+                              )
+                            }
+                          />
+                        </FormControl>
+                        <FormDescription>Photo of your contact</FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
                 <div>
                   <FormField
@@ -139,7 +138,10 @@ function onSubmit(values: z.infer<typeof addContactSchema>) {
                     name="last_contact"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel htmlFor="last_contact" className="text-right">
+                        <FormLabel
+                          htmlFor="last_contact"
+                          className="text-right"
+                        >
                           Last Contact Date
                         </FormLabel>
                         <Popover>
